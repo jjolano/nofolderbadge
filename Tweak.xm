@@ -1,6 +1,3 @@
-@interface SBIcon : NSObject
-@end
-
 @interface SBIconView : UIView
 @end
 
