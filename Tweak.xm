@@ -1,9 +1,10 @@
 @interface SBIcon : NSObject
-- (BOOL)isFolderIcon;
 @end
 
 @interface SBIconView : UIView
-@property (retain, nonatomic) SBIcon *icon;
+@end
+
+@interface SBFolderIconView : SBIconView
 @end
 
 @interface SBIconBadgeView : UIView
@@ -14,13 +15,9 @@
 	%orig;
 
 	UIView *parentView = [self superview];
-	
-	if([parentView isKindOfClass:%c(SBIconView)]) {
-		SBIconView *iconView = (SBIconView *)parentView;
-		
-		if([iconView.icon isFolderIcon]) {
-			self.hidden = YES;
-		}
+
+	if([parentView isKindOfClass:%c(SBFolderIconView)]) {
+		self.hidden = YES;
 	}
 }
 %end
